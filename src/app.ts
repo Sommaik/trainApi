@@ -4,6 +4,7 @@ import { Server } from 'http';
 import * as cors from 'cors';
 import { UserController } from './controllers/user';
 import * as config from 'config';
+import { LoginControler } from './controllers/login';
 
 const app = express();
 const server = new Server(app);
@@ -17,3 +18,4 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use('/api/v1/user', UserController);
+app.use('/api/v1/login', LoginControler);
