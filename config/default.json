@@ -8,5 +8,8 @@
         "connectionLimit" : 10,
         "multipleStatements" :true
     },
-    "TOKEN_KEY" : "simple12Json::jwt"
+    "TOKEN_KEY" : "simple12Json::jwt",
+    "JWT_SESSION" : {
+        "session": false
+    }
 }
