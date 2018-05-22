@@ -6,16 +6,21 @@
   "scripts": {
     "start": "tsc -p . && node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 0",
-    "hello": "node dist/app.js"
+    "hello": "set NODE_ENV=production&& node dist/app.js",
+    "run-hello": "NODE_ENV=production node dist/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/config": "0.0.34",
     "@types/cors": "^2.8.4",
     "@types/express": "^4.11.1",
+    "@types/mysql": "^2.15.4",
     "@types/node": "^10.1.2",
+    "config": "^1.30.0",
     "cors": "^2.8.4",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "mysql": "^2.15.0"
   }
 }
