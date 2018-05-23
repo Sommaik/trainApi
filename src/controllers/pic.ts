@@ -1,11 +1,14 @@
 import { Router, Request, Response } from "express";
 import { jwt } from "../shared/auth";
 import { mysqlDB } from "../shared/mysql-db";
+import * as apicache from "apicache";
 
 const router: Router = Router();
 router.use(jwt.authenticate());
 
-router.get("", (req, res) => {
+let cache = apicache.middleware;
+
+router.get("", cache("5 minutes"), (req, res) => {
     let sql = `
         select
             concat(param_code,'-',entry_code,'-',item_code) as "pkCode"
