@@ -17,12 +17,10 @@ const socketio = io(server);
 
 console.log(`server start on port ${port.address()["port"]}`);
 
-socketio.on("connection", (_socket)=>{
-    _socket.on("", (payload)=>{
-
+socketio.on("connection", (_socket) => {
+    _socket.on("newPic", (payload) => {
+        _socket.emit("updatePic", 1);
     });
-
-    _socket.emit("XXX", "payload data");
 });
 
 app.use(jwt.initialize());
