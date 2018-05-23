@@ -7,11 +7,23 @@ import * as config from 'config';
 import { LoginControler } from './controllers/login';
 import { jwt } from './shared/auth';
 import { IssueController } from './controllers/issue';
+import * as io from 'socket.io';
+import { PicController } from './controllers/pic';
 
 const app = express();
 const server = new Server(app);
 let port = server.listen(config.get("port"));
+const socketio = io(server);
+
 console.log(`server start on port ${port.address()["port"]}`);
+
+socketio.on("connection", (_socket)=>{
+    _socket.on("", (payload)=>{
+
+    });
+
+    _socket.emit("XXX", "payload data");
+});
 
 app.use(jwt.initialize());
 app.use(cors());
@@ -23,3 +35,4 @@ app.use(bodyParser.urlencoded({
 app.use('/api/v1/user', UserController);
 app.use('/api/v1/login', LoginControler);
 app.use('/api/v1/issue', IssueController);
+app.use('/api/v1/pic', PicController);

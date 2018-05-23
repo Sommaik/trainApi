@@ -11,7 +11,7 @@ router.get('/excel', (req:Request, res:Response) => {
         var ws = wb.addWorksheet('All User');
         if(err){
             res.json(err);
-        }else{
+        }else{            
             for(let i=0; i<result.length; i++){
                 ws.cell(i+1, 1 ).string(result[i].userCode);
                 ws.cell(i+1, 2 ).string(result[i].userTitle);
