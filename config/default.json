@@ -11,5 +11,6 @@
     "TOKEN_KEY" : "simple12Json::jwt",
     "JWT_SESSION" : {
         "session": false
-    }
+    },
+    "UPLOAD_PATH" : "uploads/"
 }

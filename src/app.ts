@@ -19,7 +19,11 @@ console.log(`server start on port ${port.address()["port"]}`);
 
 socketio.on("connection", (_socket) => {
     _socket.on("newPic", (payload) => {
-        _socket.emit("updatePic", 1);
+        socketio.emit("updatePic", 1);
+    });
+
+    _socket.on("deletePic", (payload) => {
+        socketio.emit("updatePic", -1);
     });
 });
 

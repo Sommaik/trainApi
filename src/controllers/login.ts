@@ -19,6 +19,7 @@ router.post("/doLogin", (req: Request, res: Response) => {
         and user_active = 'Y';
     `;
     mysqlDB.query(sql, (err, result) => {
+        console.log(config.get("TOKEN_KEY"));
         let _token = jwt.encode(
             {
                 userCode: dat.userCode
